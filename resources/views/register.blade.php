@@ -1,16 +1,22 @@
-<form action="">
-    <div class="bg-gray-50 text-black/50 dark:bg-black dark:text-white/50">
-        <label for="name-class" >Name</label>
-        <input type="text" placeholder="Please enter your name" id="myName">
+@extends('layout')
+@section('title','Register')
+@section('content')
+    <div class="container">
+        <form class="ms-auto me-auto mt-auto" style="width: 500px">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" id="exampleUsername" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
-    <div>
-        <label for="email-class">Email</label>
-        <input type="email" placeholder="example@email.com" id="uE-mail">
-    </div>
-
-    <div>
-        <label for="password-class">Password</label>
-        <input type="password" placeholder="please enter your password" id="mypass">
-    </div>
-</form>
+@endsection
