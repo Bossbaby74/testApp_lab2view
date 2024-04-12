@@ -46,7 +46,7 @@ class Authmanager extends Controller
         return redirect(route('login'))->with(['success','registered successfully, please login']);
     }
     function logout(){
-        //phpSession::flush();
+        //Session::flush();
         Auth::logout();
         return redirect(route('login'));
     }

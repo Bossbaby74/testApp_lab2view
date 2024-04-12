@@ -6,18 +6,28 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                @auth
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="welcome">Home</a>
+                    <a class="nav-link" href="{{route('logout')}}">Logout</a>
+                </li>
+                @else
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="{{route('welcome')}}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register">Register</a>
+                    <a class="nav-link" href="{{route('register')}}">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login">Login</a>
+                    <a class="nav-link" href="{{route('login')}}">Login</a>
                 </li>
+                @endauth
+
             </ul>
             <span class="navbar-text">
-      </span>
+                  @auth
+                    <h1>welcome {{Auth()->user()->name}}</h1>
+                @endauth
+            </span>
         </div>
     </div>
 </nav>
