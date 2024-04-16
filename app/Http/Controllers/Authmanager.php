@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\Hash;
 
 class Authmanager extends Controller
 {
-    function login(){
+    function login()
+    {
         return view('login');
+    }
+        function welcome(){
+        return view('welcome');
     }
     function register(){
         return view('register');

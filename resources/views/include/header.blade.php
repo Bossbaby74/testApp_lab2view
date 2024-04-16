@@ -12,9 +12,6 @@
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{route('welcome')}}">Dashboard</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="{{route('register')}}">Register</a>
                 </li>
                 <li class="nav-item">
