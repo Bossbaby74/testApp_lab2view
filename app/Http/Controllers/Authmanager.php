@@ -20,6 +20,7 @@ class Authmanager extends Controller
         return view('register');
     }
 
+
     function loginPost(Request $request){
         /*this line of code will verify if the email and password are present and if not, it
          will return an error, asking the user to enter the email and/or password*/
@@ -28,11 +29,20 @@ class Authmanager extends Controller
             'password'=>'required'
         ]);
         $credentials = $request->only('email', 'password');
+
         if(Auth::attempt($credentials)){
+
+            /** @var User $users */
+            $user = Auth::user();
+            if($user->is_admin) {
+                $users = User::all();
+                return view('admin', ['users' => $users ?? []]);
+            }
             return redirect()->intended('welcome');
         }
         return redirect(route('login'))->withErrors(['email'=>'Invalid email or password']);
     }
+
     function registerPost(Request $request){
         $request->validate([
             'name'=>'required',
@@ -54,4 +64,9 @@ class Authmanager extends Controller
         Auth::logout();
         return redirect(route('login'));
     }
+}
+function admin(){
+    $users = User::where('is_admin',0)->get();
+    return view('admin',['users'=>$users]);
+
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Database\Seeders;
+namespace resources;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Database\Seeders\Role;
 use Illuminate\Database\Seeder;
 
 class RoleSeeder extends Seeder

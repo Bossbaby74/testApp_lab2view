@@ -13,6 +13,8 @@
                 <input type="password" class="form-control" name="password">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
+            <br><br>
+            <a href="{{route('register.post')}}" ><button type="button" class=" btn btn-primary">Don't have an account? Register Now!</button></a>
         </form>
     </div>
 @endsection
