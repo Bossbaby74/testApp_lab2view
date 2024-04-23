@@ -1,49 +1,21 @@
-<head>
-<link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
- <style>
-    .form-box{
-        border:solid;
-        margin-top: 20%;
-        margin-bottom:30%;
-        margin-left:10%;
-        border-radius:10px;
-        width:80%;
-        display: flex; 
-        justify-content: center; 
-        align-items: center; 
-        background-color:grey;
-
-    }
-    .form-name{
-        margin:5px 5px 5px 5px;
-        color: white;
-        font-family: Arial;
-        font-size:20px;
-    }
-    .form-pass{
-        margin:5px 5px 5px 5px;
-        color: white;
-        font-family: Arial;
-        font-size:20px;
-    }
-    input{
-        margin:7px;
-        height:20px;
-        width:50%;
-    }
-</style>
-</head>
-<div class="form-box">
-<form action="#">
-    <div class="form-name">
-        <label for="class-username" class="uname-cls">username</label>
-        <input type="text" class="userlogin" name="uname">
+@extends('layout')
+@section('title','Login')
+@section('content')
+    <div class="container">
+        <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto mt-auto" style="width: 500px">
+            @csrf
+            <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" name="email" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+            <br><br>
+            <a href="{{route('register.post')}}" ><button type="button" class=" btn btn-primary">Don't have an account? Register Now!</button></a>
+        </form>
     </div>
+@endsection
 
-    <div class="form-pass">
-        <label for="class-password">password</label>
-        <input type="password" class="userPass" name="uPass">
-    </div>
-</form>
-</div>
