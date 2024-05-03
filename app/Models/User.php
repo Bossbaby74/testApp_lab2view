@@ -4,13 +4,12 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-/**
- *
- * @property boolean $is_admin
- */
+
 class User extends Authenticatable
 
 {
@@ -50,4 +49,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function roles(): hasOne{
+        return $this->hasOne(Role::class, 'roles_id');
+    }
+    public function isAdmin(){
+     return $this->roles_id===1;
+    }
+
 }

@@ -16,6 +16,13 @@
                 <label class="form-label">Password</label>
                 <input type="password" class="form-control" name="password">
             </div>
+            <div>
+                <select name="selectOption" id="role_id">
+                    <option value="Super_admin">Super Admin</option>
+                    <option value="Super_admin">Admin</option>
+                    <option value="Super_admin">User</option>
+                </select>
+            </div>
             <button type="submit" class="btn btn-primary">Submit</button>
             <br><br>
             <a href="{{route('login.post')}}" ><button type="button" class=" btn btn-primary">Already have an account? Login Instead!</button></a>

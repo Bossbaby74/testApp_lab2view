@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,7 @@ class Authmanager extends Controller
         return view('login');
     }
         function welcome(){
-        return view('welcome');
+        return view('/welcome');
     }
     function register(){
         return view('register');
@@ -33,9 +34,14 @@ class Authmanager extends Controller
         if(Auth::attempt($credentials)){
 
             /** @var User $users */
+
             $user = Auth::user();
-            if($user->is_admin) {
+
+           Role::all();
+           Role::find(1);
+            if($user->isAdmin()){
                 $users = User::all();
+
                 return view('admin', ['users' => $users ?? []]);
             }
             return redirect()->intended('welcome');
@@ -49,7 +55,6 @@ class Authmanager extends Controller
             'email'=>'required|email|unique:users',
             'password'=>'required'
         ]);
-
         $data['name'] = $request->input('name');
         $data['email'] = $request->input('email');
         $data['password'] = Hash::make($request->input('password'));
@@ -66,7 +71,7 @@ class Authmanager extends Controller
     }
 }
 function admin(){
-    $users = User::where('is_admin',0)->get();
+    $users = User::where('users_id'== 'role_id')->get();
     return view('admin',['users'=>$users]);
 
 }

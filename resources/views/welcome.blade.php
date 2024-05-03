@@ -1,5 +1,5 @@
 @extends('layout')
-@section('title','Home')
+@section('title','/welcome')
 @section('content')
-    <i class="fa-regular fa-face-smile fa-10x"></i>
+    <h1>Hello</h1>
 @endsection

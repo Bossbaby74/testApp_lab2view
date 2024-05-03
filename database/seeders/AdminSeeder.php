@@ -18,10 +18,10 @@ class AdminSeeder extends Seeder
         try {
 
         User::create([
-           'name' => 'Admin',
+           'name' => 'admin',
            'email' => 'admin@admin.com',
-           'password' => Hash::make('password'),
-           'is_admin' => true,
+           'password' => Hash::make('admin'),
+            'role' => 'admin',
         ]);
         }catch (\Exception $exception){
             log::error($exception->getMessage());

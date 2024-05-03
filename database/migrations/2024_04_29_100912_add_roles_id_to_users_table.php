@@ -12,7 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false);
+            $table->unsignedBigInteger('roles_id')->default(3)->nullable();
+            $table->foreign('roles_id')->references('id')->on('roles');
         });
     }
 
@@ -21,8 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-       /* Schema::table('users', function (Blueprint $table) {
-            Schema::dropColumns('users','is_admin');
-        });*/
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

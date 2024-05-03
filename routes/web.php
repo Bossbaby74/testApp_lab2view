@@ -1,10 +1,11 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Authmanager;
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/login', [Authmanager::class , 'login'])->name('login');
