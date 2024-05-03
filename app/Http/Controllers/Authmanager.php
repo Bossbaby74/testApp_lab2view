@@ -44,7 +44,7 @@ class Authmanager extends Controller
 
                 return view('admin', ['users' => $users ?? []]);
             }
-            return redirect()->intended('welcome');
+            return redirect()->intended('');
         }
         return redirect(route('login'))->withErrors(['email'=>'Invalid email or password']);
     }
